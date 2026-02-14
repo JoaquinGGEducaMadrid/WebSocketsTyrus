@@ -1,17 +1,13 @@
 FROM eclipse-temurin:17-jdk
 
-# Instalar Maven
-RUN apt-get update && apt-get install -y maven
-
 WORKDIR /app
 
-# Copiar el proyecto
+# Copiamos todo el proyecto, incluido el JAR
 COPY . .
 
-# Construir el JAR
-RUN mvn -q -DskipTests package
+# Ejecutamos el JAR exportado desde Eclipse
+CMD ["java", "-jar", "target/tu-jar-con-dependencias.jar"]
 
-# Ejecutar la aplicación
-CMD ["java", "-cp", "target/classes:target/dependency/*", "com.example.websocket.WebSocketServer"]
+
 
 
