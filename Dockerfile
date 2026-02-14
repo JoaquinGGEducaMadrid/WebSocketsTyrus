@@ -6,7 +6,8 @@ WORKDIR /app
 COPY . .
 
 # Ejecutamos el JAR exportado desde Eclipse
-CMD ["java", "-jar", "target/tu-jar-con-dependencias.jar"]
+CMD ["java", "-jar", "target/websocketstyrus.jar"]
+
 
 
 
